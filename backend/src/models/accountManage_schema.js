@@ -7,4 +7,4 @@ const AccountManagementSchema = new mongoose.Schema({
     deletedAt: { type: Date, default: null }
   });
 
-module.exports = mongoose.model("AccountManagement", AccountManagementSchema);
+export const AccountManagement = mongoose.model("AccountManagement", AccountManagementSchema);

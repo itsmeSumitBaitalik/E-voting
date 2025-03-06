@@ -21,5 +21,4 @@ const DeviceSessionSchema = new mongoose.Schema({
     ]
   });
   
-  module.exports = mongoose.model("DeviceSession", DeviceSessionSchema);
-  
+export const DeviceSession = mongoose.model("DeviceSession", DeviceSessionSchema);

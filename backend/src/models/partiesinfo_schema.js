@@ -17,11 +17,9 @@ const partySchema = new mongoose.Schema({
   leadership: {
     type: String,
     required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  }
+},{
+  timestamps:true
 });
 
-module.exports = mongoose.model("Party", partySchema);
+export const Party = mongoose.model("Party", partySchema);

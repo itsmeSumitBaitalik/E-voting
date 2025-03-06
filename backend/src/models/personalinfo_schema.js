@@ -22,4 +22,4 @@ const PersonalInfoSchema = new mongoose.Schema({
   ]
 });
 
-module.exports = mongoose.model("PersonalInfo", PersonalInfoSchema);
+export const PersonalInfo= mongoose.model("PersonalInfo", PersonalInfoSchema);

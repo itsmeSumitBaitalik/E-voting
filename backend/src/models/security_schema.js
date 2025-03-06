@@ -13,4 +13,4 @@ const PasswordManagementSchema = new mongoose.Schema({
   ]
 });
 
-module.exports = mongoose.model("PasswordManagement", PasswordManagementSchema);
+export const PasswordManagement= mongoose.model("PasswordManagement", PasswordManagementSchema);

@@ -13,5 +13,5 @@ const NotificationPreferencesSchema = new mongoose.Schema({
                          default: "en" }
   });
   
-module.exports = mongoose.model("NotificationPreferences", NotificationPreferencesSchema);
+export const NotificationPreferences = mongoose.model("NotificationPreferences", NotificationPreferencesSchema);
   

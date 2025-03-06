@@ -44,4 +44,4 @@ const electionSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Election", electionSchema);
+export const Election = mongoose.model("Election", electionSchema);

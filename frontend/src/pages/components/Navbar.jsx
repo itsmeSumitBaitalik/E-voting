@@ -12,8 +12,8 @@ const Navbar = () => {
               <span className="font-bold text-lg">VoteIndia</span>
             </Link>
           </div>
-          <Link to="/home">
-            <button className="flex items-center space-x-2 px-4 py-2 rounded-full bg-[#046A38] text-white hover:bg-green-900 transition">
+          <Link to="/login">
+            <button className="flex items-center space-x-2 px-4 py-2 rounded-full bg-[#046A38] text-white hover:bg-green-900 transition cursor-pointer">
               <LogIn className="w-4 h-4" />
               <span className="font-bold text-lg">LogIn</span>
             </button>

@@ -8,5 +8,5 @@ const HelpSupportSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
   });
   
-  module.exports = mongoose.model("HelpSupport", HelpSupportSchema);
+export const HelpSupport= mongoose.model("HelpSupport", HelpSupportSchema);
   

@@ -25,8 +25,8 @@ const Landingpage = () => {
   }, []);
 
   const features = [
-    { id: 1, title: "Fast", desc: "Push the industry forward with cutting-edge features." },
-    { id: 2, title: "Easy", desc: "Making tools for processes simple to manage." },
+    { id: 1, title: "Flexible", desc: "No need of physical attending" },
+    { id: 2, title: "Secured", desc: "A Secure way towards vote " },
   ];
 
   const faqs = ["What is Product?", "Is there a trial?", "Do I need to code?"];
@@ -37,12 +37,12 @@ const Landingpage = () => {
 
       <section className="max-w-6xl mx-auto px-4 py-4 text-center">
         <div className="fade-up">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">VoteIndia.</h1>
+          {/* <h1 className="text-4xl md:text-6xl font-bold mb-6">VoteIndia.</h1> */}
           <div className="bg-gray-100 w-full aspect-video rounded-lg mb-8">
             <img className="w-full rounded-lg" src={img} alt="VoteIndia" />
           </div>
           <p className="text-gray-600 mb-6">Go from design to site with 5 years top-rated development team.</p>
-          <Link to="/home" className="bg-[#046A38] text-white px-6 py-3 rounded-full hover:bg-green-900 transition inline-block">
+          <Link to="/login" className="bg-[#046A38] text-white px-6 py-3 rounded-full hover:bg-green-900 transition inline-block">
             Get Started
           </Link>
         </div>
@@ -85,7 +85,7 @@ const Landingpage = () => {
 
       <section className="max-w-6xl mx-auto px-4 py-20 text-center fade-up">
         <h2 className="text-3xl font-bold mb-6">Sign up today.</h2>
-        <Link to="/home">
+        <Link to="/login">
           <button className="bg-[#046A38] text-white px-6 py-3 rounded-full hover:bg-green-900 transition">
             Get Started
           </button>

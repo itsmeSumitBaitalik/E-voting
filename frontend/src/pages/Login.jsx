@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import flag from "./img/indian_flag.png";
 import Navbar from "./components/Navbar";
 
-export default function Home() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       {/* navbar */}
-
+    
       <div className="min-h-screen bg-gradient-to-br from-orange-100 via-white to-green-100 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
           <div className="text-center mb-8">
