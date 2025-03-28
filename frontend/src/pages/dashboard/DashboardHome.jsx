@@ -9,7 +9,7 @@ export default function DashboardHome() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold text-gray-900">Welcome back, {user?.name}!</h1>
+        <h1 className="text-3xl font-bold text-[#FF9933]">Welcome back, {user?.name}!</h1>
         <p className="mt-2 text-gray-600">Here's what's happening with the current election.</p>
       </header>
 
@@ -61,9 +61,9 @@ function StatCard({ icon, title, value, description }) {
       <div className="flex items-center">
         {icon}
         <div className="ml-4">
-          <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-          <p className="text-2xl font-bold text-gray-900 mt-1">{value}</p>
-          <p className="text-sm text-gray-600 mt-1">{description}</p>
+          <h3 className="text-lg font-bold text-black">{title}</h3>
+          <p className="text-2xl font-bold text-black mt-1">{value}</p>
+          <p className="text-sm text-black mt-1">{description}</p>
         </div>
       </div>
     </div>

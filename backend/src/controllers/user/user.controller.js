@@ -1,14 +1,13 @@
 import {generateToken} from '../../lib/generateToken.js'
 import bcrypt from "bcrypt"
 import { User } from '../../models/users.model.js'
-
+import { sendEmailToAdmin } from '../../lib/emailGenerator.js'
 
 export const signup = async (req,res)=>{
-    const {fullname,password,email} = req.body
+    const {username,password,email} = req.body
     try {
-        if(!email||!password||!fullname){
+        if(!email||!password||!username){
             return res.status(400).json({message:"All fields are required"})
-
         }
 
         if(password.length<6){
@@ -23,7 +22,7 @@ export const signup = async (req,res)=>{
         const hashPassword = await bcrypt.hash(password,salt)
 
         const newUser = new User({
-            fullname:fullname,
+            username:username,
             email:email,
             password:hashPassword,
         })
@@ -34,7 +33,7 @@ export const signup = async (req,res)=>{
 
             res.status(201).json({
                 _id:newUser._id,
-                fullname:newUser.fullname,
+                username:newUser.username,
                 email:newUser.email,
                 profilepic:newUser.profilepic,
 
@@ -53,22 +52,26 @@ export const signup = async (req,res)=>{
 export const login = async (req,res)=>{
     const {email,password} = req.body
     try {
+        if (!email||!password){
+            return res.status(400).json({message:"All feilds are required"})
+        }
+        
         const user = await User.findOne({email})
-
         if (!user){
-            return res.status(400).json({message:"Invalid Credential"})
+            return res.status(400).json({message:"User not found!"})
         }
 
         const isPasswordcorrect = await bcrypt.compare(password,user.password)
         if (!isPasswordcorrect){
-            return res.status(400).json({message:"Invalid Credential"})
+            return res.status(400).json({message:"Incorrect Password"})
         }
 
         generateToken(user._id,res)
 
         res.status(200).json({
+            message:"successfully logged IN",
             _id : user._id,
-            fullname:user.fullname,
+            username:user.username,
             email:user.email,
         })
     } catch (error) {
@@ -108,4 +111,41 @@ export const updateProfile = async (req,res)=>{
 
     }
 }
+export const contact = async (req, res) => {
+    try {
+        const { name, subject, email, message } = req.body;
 
+        // Validate required fields
+        if (!name || !email || !message || !subject) {
+            return res.status(400).json({ message: "All fields are required!" });
+        }
+
+        // If using nodemailer to send an email (Optional)
+        await sendEmailToAdmin(name, subject, email, message);
+
+        return res.status(200).json({ 
+            success: true, 
+            message: "Your message has been sent successfully!" 
+        });
+
+    } catch (error) {
+        console.error("Error in contact form:", error);
+        return res.status(500).json({ 
+            success: false, 
+            message: "Something went wrong. Please try again later." 
+        });
+    }
+};
+
+
+export const dashboard = async(req,res)=>{
+    
+    
+}
+
+export const vote = async()=>{
+    const {vote} = req.body
+    
+}
+export const profile = async()=>{}
+export const parties = async()=>{}

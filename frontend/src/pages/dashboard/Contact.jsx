@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import toast, {Toaster} from 'react-hot-toast'
+import { api } from '../../lib/axios';
 
 export default function Contact() {
+  const [loading,setLoading] = useState()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
+    // const handleMessage = (e)=>{
+    //   e.preventDefault()
+    //   toast.success("Successfull Message Send",formData)
+    // }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // In a real app, you would send this to your backend
-    console.log('Form submitted:', formData);
-  };
-
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+  
+      try {
+        const response = await api.post('/contact', formData);
+        toast.success(response.data.message || 'Message sent successfully!');
+        
+        setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
+      } catch (error) {
+        toast.error(error.response?.data?.message || 'Failed to send message.');
+      }
+  
+      setLoading(false);
+    };
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -24,6 +41,7 @@ export default function Contact() {
 
   return (
     <div className="max-w-3xl mx-auto">
+      <Toaster/>
       <div className="bg-white shadow rounded-lg overflow-hidden">
         <div className="p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Us</h2>
@@ -32,7 +50,7 @@ export default function Contact() {
             <ContactInfo
               icon={<Phone className="w-5 h-5 text-blue-600" />}
               title="Phone"
-              info="+1 (555) 123-4567"
+              info="+91 22015-0533-000"
             />
             <ContactInfo
               icon={<Mail className="w-5 h-5 text-blue-600" />}
@@ -42,7 +60,7 @@ export default function Contact() {
             <ContactInfo
               icon={<MapPin className="w-5 h-5 text-blue-600" />}
               title="Address"
-              info="123 Voting Street, Democracy City"
+              info="Sector 12, Delhi"
             />
           </div>
 
@@ -103,7 +121,8 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              // onClick={handleSubmit}
+              className="cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <Send className="w-4 h-4 mr-2" />
               Send Message

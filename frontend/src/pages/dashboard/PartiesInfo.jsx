@@ -1,17 +1,19 @@
-import { Globe, Users, Target, Award } from 'lucide-react';
+import {Link} from 'react-router-dom'
+import { Parties } from '../components/Parties';
 
 export default function PartiesInfo() {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-gray-800">Political Parties Information</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {parties.map((party) => (
+      <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-6">
+        {Parties.map((party) => (
           <div key={party.id} className="bg-white shadow rounded-lg overflow-hidden">
             <div className="p-6">
               <div className="flex items-center">
-                <div className={`p-3 rounded-lg ${party.bgColor}`}>
-                  {party.icon}
+                <div className={`p-3 rounded-lg`} style={{ backgroundColor: party.bgColor }}>
+                  {/* ✅ Corrected Image Rendering */}
+                  <img src={party.icon} alt={party.name} className="h-12 w-12" />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold text-gray-800">{party.name}</h3>
@@ -35,13 +37,13 @@ export default function PartiesInfo() {
 
               <div className="mt-6">
                 <h4 className="font-medium text-gray-800 mb-2">Current Leadership</h4>
-                <p className="text-gray-600">{party.leadership}</p>
+                <p className="text-gray-600">{party.leadership.name}</p>
               </div>
 
               <div className="mt-6">
-                <button className="text-blue-600 hover:text-blue-800 font-medium transition-all">
+                <Link to="/partiesinfo"><button className="text-blue-600 hover:text-blue-800 font-medium transition-all cursor-pointer">
                   Learn More →
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>
@@ -50,43 +52,4 @@ export default function PartiesInfo() {
     </div>
   );
 }
-
-const parties = [
-  {
-    id: 1,
-    name: 'Progressive Party',
-    slogan: 'Building a Better Tomorrow',
-    icon: <Globe className="w-6 h-6 text-blue-600" />,
-    bgColor: 'bg-blue-100',
-    policies: ['Universal Healthcare Reform', 'Green Energy Initiative', 'Education Accessibility'],
-    leadership: 'Jane Wilson - Party Chair',
-  },
-  {
-    id: 2,
-    name: 'Conservative Party',
-    slogan: 'Preserving Our Values',
-    icon: <Target className="w-6 h-6 text-red-600" />,
-    bgColor: 'bg-red-100',
-    policies: ['Fiscal Responsibility', 'Strong National Defense', 'Free Market Economics'],
-    leadership: 'Robert Mitchell - Party Chair',
-  },
-  {
-    id: 3,
-    name: 'Green Party',
-    slogan: 'For a Sustainable Future',
-    icon: <Award className="w-6 h-6 text-green-600" />,
-    bgColor: 'bg-green-100',
-    policies: ['Environmental Protection', 'Renewable Energy', 'Sustainable Agriculture'],
-    leadership: 'Maria Garcia - Party Chair',
-  },
-  {
-    id: 4,
-    name: 'Independent Alliance',
-    slogan: 'People Before Politics',
-    icon: <Users className="w-6 h-6 text-purple-600" />,
-    bgColor: 'bg-purple-100',
-    policies: ['Government Transparency', 'Electoral Reform', 'Local Governance'],
-    leadership: 'David Chen - Alliance Coordinator',
-  },
-];
 

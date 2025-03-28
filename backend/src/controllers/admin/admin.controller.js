@@ -61,8 +61,10 @@ export const updateProfile = async (req,res)=>{
 
     }
 }
-export const dashboard = async (req,res)=>{}
-export const contact = async (req,res)=>{}
+
+export const dashboard = async (req,res)=>{
+
+}
 export const parties = async (req,res)=>{}
 export const vote= async (req,res)=>{}
 export const profile= async (req,res)=>{}

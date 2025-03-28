@@ -55,26 +55,26 @@ export default function ProfileSettings() {
       toast.success('Profile updated successfully');
       setIsEditing(false);
     } catch (error) {
-      toast.error('Failed to update profile');
+      toast.error('Failed to update profile');  
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen  border-none rounded-xl">
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="md:grid md:grid-cols-12 md:gap-6">
           {/* Sidebar */}
-          <aside className="md:col-span-3">
-            <nav className="space-y-1">
+          <aside className="md:col-span-3 bg-white">
+            <nav className="space-y-1 mt-5">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id)}
                   className={`${
                     activeSection === section.id
-                      ? 'bg-gray-100 text-gray-900'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  } group flex items-center px-3 py-2 text-sm font-medium rounded-md w-full`}
+                      ? ' text-green-500'
+                      : 'text-orange-600  hover:text-green-500'
+                  } group flex items-center px-3 py-2 text-sm font-medium  w-full cursor-pointer`}
                 >
                   <section.icon
                     className={`${

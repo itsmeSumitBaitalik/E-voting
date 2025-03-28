@@ -1,6 +1,10 @@
 import mongoose from 'mongoose'
 
 const partySchema = new mongoose.Schema({
+  img:{
+    type:String,
+    required:true
+  },
   name: {
     type: String,
     required: true,

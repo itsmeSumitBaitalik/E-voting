@@ -5,7 +5,7 @@ import express from "express"
 import {connectDB} from "./lib/db.js"
 import cookieParser from "cookie-parser" ;
 import AuthRoute from './routes/user.route.js'
-import Dashboard from './routes/dashboard.route.js'
+// import Dashboard from './routes/dashboard.route.js'
 
 
 connectDB()
@@ -21,9 +21,9 @@ app.use(cors({
 const port = process.env.PORT || 3001
 
 app.use("/api/auth",AuthRoute)
-app.use("/api/auth",Dashboard)
+// app.use("/api/auth",Dashboard)
 app.use("/api/auth/admin",AuthRoute)
-app.use("/api/auth/admin",Dashboard)
+// app.use("/api/auth/admin",Dashboard)
 
 try {
  

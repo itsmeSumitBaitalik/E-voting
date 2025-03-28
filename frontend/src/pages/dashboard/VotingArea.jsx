@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, AlertCircle } from 'lucide-react';
+import {Parties} from  '../components/Parties.jsx'
+
 
 export default function VotingArea() {
   const [selectedCandidate, setSelectedCandidate] = useState(null);
@@ -27,10 +29,13 @@ export default function VotingArea() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="bg-white shadow rounded-lg p-6">
+        <div className='hidden'>
+          hello moto
+        </div>
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Current Election: City Council 2024</h2>
         
         <div className="space-y-4">
-          {candidates.map((candidate) => (
+          {Parties.map((candidate) => (
             <div
               key={candidate.id}
               className={`border rounded-lg p-4 cursor-pointer transition-colors ${
@@ -42,8 +47,8 @@ export default function VotingArea() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-gray-800">{candidate.name}</h3>
-                  <p className="text-sm text-gray-600">{candidate.party}</p>
+                  <h3 className="font-semibold text-gray-800">{candidate.leadership.name}</h3>
+                  <p className="text-sm text-gray-600">{candidate.name}</p>
                 </div>
                 <div className="h-4 w-4 rounded-full border-2 border-blue-500 flex items-center justify-center">
                   {selectedCandidate === candidate.id && (
@@ -70,7 +75,7 @@ export default function VotingArea() {
           <button
             onClick={handleVote}
             disabled={!selectedCandidate}
-            className={`w-full py-3 px-4 rounded-md text-white font-medium ${
+            className={`w-full py-3 px-4 rounded-md text-white font-medium cursor-pointer ${
               selectedCandidate
                 ? 'bg-blue-600 hover:bg-blue-700'
                 : 'bg-gray-300 cursor-not-allowed'
@@ -84,9 +89,3 @@ export default function VotingArea() {
   );
 }
 
-const candidates = [
-  { id: '1', name: 'John Smith', party: 'Progressive Party' },
-  { id: '2', name: 'Sarah Johnson', party: 'Conservative Party' },
-  { id: '3', name: 'Michael Brown', party: 'Independent' },
-  { id: '4', name: 'Emily Davis', party: 'Green Party' },
-];

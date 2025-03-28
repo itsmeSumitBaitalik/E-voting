@@ -7,9 +7,8 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   const login = (email, password) => {
-    // In a real app, you would validate credentials with your backend
     setIsAuthenticated(true);
-    setUser({ email, name: email.split('@')[0] });
+    setUser({ email, name: email.split('@.com')[0] });
   };
 
   const logout = () => {
