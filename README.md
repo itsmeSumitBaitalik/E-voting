@@ -51,13 +51,21 @@ It allows citizens or users to participate in elections, polls, and surveys in a
 ->npm run dev
 ```
 
-👨‍💻 Authors
-Sumit Baitalik
-Student at Parul University
-Full Stack Developer | MERN | Python | FastAPI
-GitHub: @itsmeSumitBaitalik
+## 👨‍💻 Authors
 
-Mohit Meveda
-Student at Parul University
-UI/UX Designer | MongoDB
-GitHub: @mohitmeveda
+<table>
+  <tr>
+    <td align="center">
+      <b>Sumit Baitalik</b><br/>
+      Student at Parul University<br/>
+      Full Stack Developer <br/> MERN | Python | FastAPI <br/>
+      <a href="https://github.com/sumitbaitalik">GitHub: @sumitbaitalik</a>
+    </td>
+    <td align="center">
+      <b>Mohit Meveda</b><br/>
+      Student at Parul University<br/>
+      Backend Developer <br/> Node.js | MongoDB <br/>
+      <a href="https://github.com/mohitmeveda">GitHub: @mohitmeveda</a>
+    </td>
+  </tr>
+</table>
